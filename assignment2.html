@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4Industry Assignments</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container bg-light">
+        <div class="col-md-12 text-center">
+            <h1> Assignment - 2</h1>
+            <button class="btn btn-info" onclick="window.location.href='usercards.html';">
+                Assignment 1</button>
+            <button class="btn btn-info" data-toggle="modal" data-target="#adduser">
+                    Add New USer</button>
+            
+        </div>
+    </div>
+    <div class="modal fade" id="adduser" tabindex="-1" aria-labelledby="adduser" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="text-center">
+                        <h5 class="modal-title" id="cta-modal-title">ADD NEW USER</h5>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form onsubmit="return adduser(this);" id="add-user-form" name="add-user-form">
+                        <div class="form-group">
+                            <label class="modal-label" for="employeeNo">Employee Number</label>
+                            <div>
+                                <input type="number" name="employeeno" class="form-control modal-input" id="employeeno" aria-describedby="employeeno" required="">
+                            </div>
+                            <label class="modal-label" for="name">First Name</label>
+                            <div>
+                                <input type="text" name="fname" class="form-control modal-input" id="fname" aria-describedby="fname" required="">
+                            </div>
+                            <label class="modal-label" for="name">Last Name</label>
+                            <div>
+                                <input type="text" name="lname" class="form-control modal-input" id="lname" aria-describedby="lname" required="">
+                            </div>
+			                <label class="modal-label" for="mobile">Mobile number</label>
+                            <div>
+                                <input type="text" name="mobile" class="form-control modal-input" id="mobile" aria-describedby="mobile" required="">
+                            </div>
+			                <label class="modal-label" for="Email">Email address</label>
+                            <div>
+                                <input type="email" name="email" class="form-control modal-input" id="Email" aria-describedby="Email" required="">
+                            </div>
+			            </div>
+                        <div class="claim-button text-center">
+                            <button type="submit" class="btn btn-dark">ADD</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
