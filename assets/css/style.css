@@ -1,0 +1,12 @@
+body {
+    background-color: palevioletred;
+}
+.cta-btn {
+    position:absolute;
+    top: 30%;
+    left: 40%;
+    display: block;
+}
+.card {
+    background-color:cadetblue;
+}

@@ -11,14 +11,19 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div class="container bg-light">
-        <div class="col-md-12 text-center">
-            <h1> Assignment - 2</h1>
-            <button class="btn btn-info" onclick="window.location.href='usercards.html';">
-                Assignment 1</button>
-            <button class="btn btn-info" data-toggle="modal" data-target="#adduser">
-                    Add New USer</button>
-            
+    <div class="container">
+        <div class="row cta-btn">
+            <div class="col-md-12 text-center">
+                <button class="btn btn-large btn-info mb-5 p-5" onclick="window.location.href='usercards.html';">
+                    VIEW USERS</button>
+            </div>
+            <div class="col-md-12 text-center">
+                <button class="btn btn-large btn-info mt-5 p-5" data-toggle="modal" data-target="#adduser">
+                    ADD NEW USER</button>
+            </div>
+            <div class="col-md-12 mt-5 text-center">
+                <button class="btn btn-danger btn-text-black" onclick="window.location.href='index.html';">BACK</button>
+            </div>
         </div>
     </div>
     <div class="modal fade" id="adduser" tabindex="-1" aria-labelledby="adduser" style="display: none;" aria-hidden="true">
@@ -33,7 +38,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form onsubmit="return adduser(this);" id="add-user-form" name="add-user-form">
+                    <form onsubmit="adduser(this);" id="add-user-form" name="add-user-form">
                         <div class="form-group">
                             <label class="modal-label" for="employeeNo">Employee Number</label>
                             <div>
@@ -64,5 +69,7 @@
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>
