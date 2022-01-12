@@ -32,8 +32,10 @@ localStorage.setItem("userData", userdata_str);
 
 
 function renderUSerCards() {
-    var mainDiv = document.querySelector('.container');
     
+    var mainDiv = document.querySelector('.usercards');
+    document.getElementsByClassName("assignmnet2").style.display = "None"
+    console.log(container);
     for(var i = 0; i < userData.length; i++){
         var cardDiv = document.createElement('div');
         cardDiv.classList.add('card', 'col-md-6', 'col-lg-4');
@@ -53,14 +55,16 @@ function renderUSerCards() {
         var email = document.createElement('p');
         email.className = 'email';
         email.innerHTML = userData[i].email;
-       
+
+        
         var edit = document.createElement('button');
         edit.className = 'btn';
         edit.innerHTML = "EDIT"; 
-        
+       
         var del = document.createElement('button');
         del.className = 'btn';
         del.innerHTML = "DELETE";
+        
        cardDiv.append(badges, emp_no, fullname, mobile, email, edit, del); 
         console.log(cardDiv);
         mainDiv.appendChild(cardDiv);
