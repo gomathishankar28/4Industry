@@ -28,8 +28,10 @@ var userData = [
 
 
 function renderUSerCards() {
-    document.getElementById('btn-view').disabled = true;
+    
     var mainDiv = document.querySelector('.usercards');
+    console.log(mainDiv.childElementCount);
+    if (mainDiv.childElementCount == 0) {
     let len = mainDiv.childNodes.length
         for(var i = 0; i < userData.length; i++){
             var colDiv = document.createElement('div');
@@ -60,6 +62,7 @@ function renderUSerCards() {
             cardDiv.append(badges, emp_no, fullname, mobile, email, btns); 
             console.log(cardDiv);
             mainDiv.appendChild(colDiv);
+        }
     } 
 }
 
@@ -71,10 +74,11 @@ function onFormSubmit() {
     createUSerCard(formData);
 }
 
-function onEditFormSubmit(e) {
-    
+function onEditFormSubmit() {
     var formData = getEditFormData();
-    console.log(formData);
+    userData.push(formData);
+    var userdata_str = JSON.stringify(userData);
+    localStorage.setItem("userData", userdata_str); 
     updateUSerCard(formData);
 }
 function getEditFormData() {
@@ -106,8 +110,6 @@ function resetForm() {
     
 }
  
-
-
 function editUSerCard(e) {
     var selected_card = e.parentElement.parentElement;
     document.getElementById("efname").value = selected_card.childNodes[2].innerHTML.split(" ")[0];
@@ -118,7 +120,6 @@ function editUSerCard(e) {
     
  }
 
- 
 function createUSerCard(formData) {
     var mainDiv = document.querySelector('.usercards');
     var colDiv = document.createElement('div');
@@ -151,11 +152,20 @@ function createUSerCard(formData) {
         mainDiv.appendChild(colDiv);
 }
 function updateUSerCard(formData) {
-    selected_card = formData["emp_no"].querySelector("p").parentElement;
-    console.log(selected_card);
     
-   
-    
+    totalcards = document.getElementsByClassName('card');
+    for (i=0; i < (totalcards-1); i++) {
+        if (totalcards[i].getElementsByClassName('emp_no')[0].innerHTML === formData['emp_no'])
+        {
+            console.log("updating");
+            totalcards[i].getElementsByClassName('fullname')[0].innerHTML = formData.fullname;
+            totalcards[i].getElementsByClassName('mobile')[0].innerHTML = formData.mobile;
+            totalcards[i].getElementsByClassName('email')[0].innerHTML = formData.email;
+            totalcards[i].getElementsByClassName('badge')[0].innerHTML = formData.fullname.split(" ")[0].slice(0,1) + formData.fullname.split(" ")[1].slice(0,1);
+        }
+    }
+    window.location.href = "assignment2.html";
+    renderUSerCards()
 }
 
 
