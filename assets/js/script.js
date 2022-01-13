@@ -26,32 +26,9 @@ var userData = [
 ]
 
 
-function onFormSubmit() {
-    var formData = getFormData();
-    userData.push(formData);
-    var userdata_str = JSON.stringify(userData);
-    localStorage.setItem("userData", userdata_str);
-    console.log(localStorage);
-    
-    
-}
 
-function getFormData() {
-    var formData = {};
-    formData["emp_no"] = document.getElementById("emp_no").value
-    formData["fullname"] = document.getElementById("fname").value + " " + document.getElementById("lname").value
-    formData["mobile"] = document.getElementById("mobile").value
-    formData["email"] = document.getElementById("email").value
-    createUSerCard(formData);
-    document.getElementById("emp_no").value = "";
-    document.getElementById("fname").value = "";
-    document.getElementById("lname").value = "";
-    document.getElementById("mobile").value = "";
-    document.getElementById("email").value = "";
-    return formData;
-}
- 
 function renderUSerCards() {
+    document.getElementById('btn-view').disabled = true;
     var mainDiv = document.querySelector('.usercards');
     let len = mainDiv.childNodes.length
         for(var i = 0; i < userData.length; i++){
@@ -86,22 +63,62 @@ function renderUSerCards() {
     } 
 }
 
+function onFormSubmit() {
+    var formData = getFormData();
+    userData.push(formData);
+    var userdata_str = JSON.stringify(userData);
+    localStorage.setItem("userData", userdata_str); 
+    createUSerCard(formData);
+}
+
+function onEditFormSubmit(e) {
+    
+    var formData = getEditFormData();
+    console.log(formData);
+    updateUSerCard(formData);
+}
+function getEditFormData() {
+    var formData = {};
+    formData["emp_no"] = document.getElementById("eemp_no").value;
+    formData["fullname"] = document.getElementById("efname").value + " " + document.getElementById("elname").value;
+    formData["mobile"] = document.getElementById("emobile").value;
+    formData["email"] = document.getElementById("eemail").value;
+    resetForm();
+    return formData;
+}
+
+function getFormData() {
+    var formData = {};
+    formData["emp_no"] = document.getElementById("emp_no").value;
+    formData["fullname"] = document.getElementById("fname").value + " " + document.getElementById("lname").value;
+    formData["mobile"] = document.getElementById("mobile").value;
+    formData["email"] = document.getElementById("email").value;
+    resetForm();
+    return formData;
+}
+
+function resetForm() {
+    document.getElementById("emp_no").value = "";
+    document.getElementById("fname").value = "";
+    document.getElementById("lname").value = "";
+    document.getElementById("mobile").value = "";
+    document.getElementById("email").value = "";
+    
+}
+ 
+
+
 function editUSerCard(e) {
-    let selected_card = e.parentElement.parentElement;
-    card = selected_card.childNodes;
-    console.log(card);
+    var selected_card = e.parentElement.parentElement;
     document.getElementById("efname").value = selected_card.childNodes[2].innerHTML.split(" ")[0];
     document.getElementById("elname").value = selected_card.childNodes[2].innerHTML.split(" ")[1];
     document.getElementById("emobile").value = selected_card.childNodes[3].innerHTML;
     document.getElementById("eemail").value = selected_card.childNodes[4].innerHTML;
     document.getElementById("eemp_no").value = selected_card.childNodes[1].innerHTML;
+    
  }
 
- function deleteUserCard(usercard) {
-     if (confirm("Are you sure you want to delete this user?")) {
-         usercard.parentElement.parentElement.remove();
-     }  
- }
+ 
 function createUSerCard(formData) {
     var mainDiv = document.querySelector('.usercards');
     var colDiv = document.createElement('div');
@@ -125,15 +142,26 @@ function createUSerCard(formData) {
         var email = document.createElement('p');
         email.className = 'email';
         email.innerHTML = formData.email;
-        var edit = document.createElement('button');
-        edit.className = 'btn';
-        edit.innerHTML = "EDIT"; 
-        
-        var del = document.createElement('button');
-        del.className = 'btn';
-        del.innerHTML = "DELETE";
-        cardDiv.append(badges, emp_no, fullname, mobile, email, edit, del); 
+        var btns = document.createElement('p');
+        btns.className = 'btn'
+        btns.innerHTML = `<a data-toggle="modal" href="#edituser" onclick="return editUSerCard(this)">EDIT</a>
+        <a onclick="deleteUserCard(this)">DELETE</a>`;
+        cardDiv.append(badges, emp_no, fullname, mobile, email, btns);
         console.log(cardDiv);
         mainDiv.appendChild(colDiv);
+}
+function updateUSerCard(formData) {
+    selected_card = formData["emp_no"].querySelector("p").parentElement;
+    console.log(selected_card);
+    
+   
+    
+}
+
+
+function deleteUserCard(usercard) {
+    if (confirm("Are you sure you want to delete this user?")) {
+        usercard.parentElement.parentElement.remove();
+    }  
 }
 

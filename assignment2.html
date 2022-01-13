@@ -14,7 +14,7 @@
     <div class="container-fluid">
         <div class="row mt-5">
             <div class="col text-center">
-                <button class="btn btn-large btn-info" onclick="renderUSerCards();">
+                <button class="btn btn-large btn-info" id="btn-view" onclick="renderUSerCards();">
                     VIEW USERS</button>
                 <button class="btn btn-large btn-info" data-toggle="modal" data-target="#adduser">
                     ADD NEW USER
@@ -23,7 +23,7 @@
                 </button>
             </div>
         </div>
-        <div class="row usercards">
+        <div class="row usercards mt-5 pt-5">
             
         </div>
         
@@ -81,7 +81,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form autocomplete="off" onsubmit="event.preventDefault();onFormSubmit();" id="edit-user-form" name="add-user-form">
+                    <form autocomplete="off" onsubmit="event.preventDefault();onEditFormSubmit();" id="edit-user-form" name="add-user-form">
                         <div class="form-group">
                             <label class="modal-label" for="emp_no">Employee Number</label>
                             <div>
