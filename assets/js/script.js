@@ -86,19 +86,21 @@ function renderUSerCards() {
     } 
 }
 
-function editUSerCard(formData) {
-    document.getElementById("efname").value = formData["fullname"].value
-    document.getElementById("elname").value = formData["fullname"].value;
-    document.getElementById("emobile").value = formData["mobile"];
-    document.getElementById("eemail").value = formData["email"];
-    document.getElementById("eemp_no").value = formData["emp_no"];
+function editUSerCard(e) {
+    let selected_card = e.parentElement.parentElement;
+    card = selected_card.childNodes;
+    console.log(card);
+    document.getElementById("efname").value = selected_card.childNodes[2].innerHTML.split(" ")[0];
+    document.getElementById("elname").value = selected_card.childNodes[2].innerHTML.split(" ")[1];
+    document.getElementById("emobile").value = selected_card.childNodes[3].innerHTML;
+    document.getElementById("eemail").value = selected_card.childNodes[4].innerHTML;
+    document.getElementById("eemp_no").value = selected_card.childNodes[1].innerHTML;
  }
 
  function deleteUserCard(usercard) {
      if (confirm("Are you sure you want to delete this user?")) {
-        usercard.parentElement.parentElement.remove();
-     }
-     
+         usercard.parentElement.parentElement.remove();
+     }  
  }
 function createUSerCard(formData) {
     var mainDiv = document.querySelector('.usercards');
