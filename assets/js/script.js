@@ -29,7 +29,6 @@ if (localStorage.get("userData") == null){
 var userdata_str = JSON.stringify(userData);
 localStorage.setItem("userData", userdata_str); 
 }
-
 function renderUSerCards() {
     let userDatas = JSON.parse(localStorage.getItem("userData"));
     console.log(userDatas);
@@ -72,9 +71,7 @@ function onFormSubmit() {
     var formData = getFormData();
     createUSerCard(formData);
     var oldItems = JSON.parse(localStorage.getItem('userData'));
-    console.log(oldItems);
     oldItems.push(formData);
-    console.log(oldItems);
     var userdata_str = JSON.stringify(oldItems);
     localStorage.setItem("userData", userdata_str); 
     console.log(localStorage);
@@ -89,6 +86,15 @@ function getFormData() {
     resetForm();
     return formData;
 }
+function resetForm() {
+    document.getElementById("emp_no").value = "";
+    document.getElementById("fname").value = "";
+    document.getElementById("lname").value = "";
+    document.getElementById("mobile").value = "";
+    document.getElementById("email").value = "";
+    
+}
+ 
 function createUSerCard(formData) {
     var mainDiv = document.querySelector('.usercards');
     var colDiv = document.createElement('div');
@@ -136,17 +142,6 @@ function getEditFormData() {
     return formData;
 }
 
-
-
-function resetForm() {
-    document.getElementById("emp_no").value = "";
-    document.getElementById("fname").value = "";
-    document.getElementById("lname").value = "";
-    document.getElementById("mobile").value = "";
-    document.getElementById("email").value = "";
-    
-}
- 
 function editUSerCard(e) {
     var selected_card = e.parentElement.parentElement;
     document.getElementById("efname").value = selected_card.childNodes[2].innerHTML.split(" ")[0];
@@ -175,6 +170,20 @@ function updateUSerCard(formData) {
 function deleteUserCard(usercard) {
     if (confirm("Are you sure you want to delete this user?")) {
         usercard.parentElement.parentElement.remove();
-    }  
-}
+        var oldItems = JSON.parse(localStorage.getItem('userData'));
+        var delcardno = usercard.parentElement.parentElement.childNodes[1].innerHTML;
+        let count = JSON.parse(localStorage.getItem("userData")).length;
+        var index;
+        for(var i=0; i < count; i++) {
+            if (oldItems[i].emp_no === delcardno) {
+                index = i;
+                break;
+            }
 
+
+        }  
+        oldItems.splice(index, 1);
+        console.log(oldItems);
+    }
+    localStorage.setItem("userData", JSON.stringify(oldItems));
+}
