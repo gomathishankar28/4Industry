@@ -179,8 +179,6 @@ function deleteUserCard(usercard) {
                 index = i;
                 break;
             }
-
-
         }  
         oldItems.splice(index, 1);
         console.log(oldItems);
