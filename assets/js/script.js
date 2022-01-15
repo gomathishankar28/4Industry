@@ -131,7 +131,8 @@ function onEditFormSubmit() {
     var formData = getEditFormData();
     console.log(formData);
     updateUSerCard(formData);
-    renderUSerCards(userData);
+    window.location.reload();
+    document.getElementById('btn-view').click();
 }
 function getEditFormData() {
     var formData = {};
@@ -177,8 +178,9 @@ function updateUSerCard(formData) {
     oldItems[index].emp_no = formData['emp_no'];
     oldItems[index].fullname = formData['fullname'];
     oldItems[index].mobile = formData['mobile'];
-    oldItems[index].email = formData['email;'];
+    oldItems[index].email = formData['email'];
     localStorage.setItem("userData", JSON.stringify(oldItems));
+    $('#edituser').modal('toggle');
 }
 function deleteUserCard(usercard) {
     if (confirm("Are you sure you want to delete this user?")) {
