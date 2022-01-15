@@ -164,8 +164,21 @@ function updateUSerCard(formData) {
             totalcards[i].getElementsByClassName('email')[0].innerHTML = formData.email;
             totalcards[i].getElementsByClassName('badge')[0].innerHTML = formData.fullname.split(" ")[0].slice(0,1) + formData.fullname.split(" ")[1].slice(0,1);
         }
-    
     }
+    var oldItems = JSON.parse(localStorage.getItem('userData'));
+    let count = JSON.parse(localStorage.getItem("userData")).length;
+    var index;
+    for(var i=0; i < count; i++) {
+        if (oldItems[i].emp_no === formData['emp_no']) {
+            index = i;
+            break;
+        }
+    }
+    oldItems[index].emp_no = formData['emp_no'];
+    oldItems[index].fullname = formData['fullname'];
+    oldItems[index].mobile = formData['mobile'];
+    oldItems[index].email = formData['email;'];
+    localStorage.setItem("userData", JSON.stringify(oldItems));
 }
 function deleteUserCard(usercard) {
     if (confirm("Are you sure you want to delete this user?")) {
