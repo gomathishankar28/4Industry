@@ -132,7 +132,9 @@ function onEditFormSubmit() {
     console.log(formData);
     updateUSerCard(formData);
     window.location.reload();
-    document.getElementById('btn-view').click();
+    if (confirm("USer is updated successfully?")) {
+        document.getElementById('btn-view').click;
+    } 
 }
 function getEditFormData() {
     var formData = {};
@@ -182,6 +184,7 @@ function updateUSerCard(formData) {
     localStorage.setItem("userData", JSON.stringify(oldItems));
     $('#edituser').modal('toggle');
 }
+
 function deleteUserCard(usercard) {
     if (confirm("Are you sure you want to delete this user?")) {
         usercard.parentElement.parentElement.remove();
