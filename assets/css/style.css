@@ -1,7 +1,7 @@
 body {
-    background-color: whitesmoke;
+    background-color: #204848;
 }
-h1, h3 {
+h1, h2, h3 {
     color: cadetblue;
 }
 .cta-btn {
@@ -51,6 +51,7 @@ p {
 i {
     color: white;
 }
+
 a {
     background-color: #254A5D;
     color: white;
@@ -59,4 +60,10 @@ a {
 
 .btn-info {
     background-color: chocolate!important;
+}
+.fa-search  {
+    height: 30px;
+}
+h2 {
+    margin-left: 150px;
 }

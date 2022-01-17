@@ -25,10 +25,10 @@ var userData = [
      },
 ]
 
-
+if (localStorage.get("userData") == null){
 var userdata_str = JSON.stringify(userData);
 localStorage.setItem("userData", userdata_str); 
-
+}
 
 function renderUSerCards() {
     let userDatas = JSON.parse(localStorage.getItem("userData"));
@@ -67,6 +67,52 @@ function renderUSerCards() {
             mainDiv.appendChild(colDiv);
         }
     } 
+}
+function displayUserCard(formData) {
+    var formData = getSearchFormData();
+    if(Object.values(formData).length > 0) {
+        createUSerCard(formData);
+    }
+    else {
+        var mainDiv = document.querySelector('.usercards');
+        var errorDiv = document.createElement('h2');
+        errorDiv.className = "text-center";
+        errorDiv.innerHTML = "No Employees found";
+        mainDiv.append(errorDiv);
+        
+    }
+}
+
+function getSearchFormData() {
+    var searchInput = document.getElementById("search-input").value;
+    console.log(searchInput);
+    var cards = JSON.parse(localStorage.getItem('userData'));
+    let count = cards.length;
+    var index; 
+    for(var i=0; i < count; i++) {
+        if (searchInput === cards[i].emp_no) {
+            index = i;
+            break;
+        }
+        
+    }
+    var card = [];
+    if (index != undefined) {
+        card[0] = cards[index];
+        var formData = {};
+        formData["emp_no"] = card[0].emp_no;
+        formData["fullname"] = card[0].fullname;
+        formData["mobile"] = card[0].mobile;
+        formData["email"] = card[0].email;
+        console.log(formData);
+        return formData;
+    }
+    else {
+        var formData = {};
+        console.log(formData);
+        return formData;
+    }
+
 }
 
 function onFormSubmit() {
@@ -142,7 +188,9 @@ function onEditFormSubmit() {
     var formData = getEditFormData();
     console.log(formData);
     updateUSerCard(formData);
-    window.location.reload();
+    document.getElementById("back").click();
+    userDatas = JSON.parse(localStorage.getItem("userData"));
+    renderUSerCards(userDatas);
 }
 function getEditFormData() {
     var formData = {};
@@ -207,8 +255,6 @@ function deleteUserCard(usercard) {
             }
         } 
         newItem = oldItems.splice(index, 1);
-        
-        /*console.log(oldItems.splice(index, 1));*/
         console.log(oldItems);
     }
     localStorage.setItem("userData", JSON.stringify(oldItems));

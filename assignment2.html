@@ -18,10 +18,18 @@
                 <h3> USER LIST</h3>
             </div>
         </div>
+        <div class="row mt-5">
+            <div class="offset-2 col-8  text-center">
+                <div class="input-group mr-5 pr-5">
+                    <input type="search" class="form-control rounded" id="search-input" placeholder="Enter Employee number to search" aria-label="Search" aria-describedby="search-addon" />
+                    <button type="button" class="btn btn-outline-primary search-btn" onclick="displayUserCard();">search</button>
+                  </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-12 col-md-4 col-lg-4 text-center mt-5">
                 <button class="btn btn-large btn-info" id="btn-view" onclick="renderUSerCards();">
-                    VIEW USERS</button>
+                    VIEW ALL</button>
             </div>
             <div class="col-12 col-md-4 col-lg-4 text-center mt-5 mb-5">
                 <button class="btn btn-large btn-info" data-toggle="modal" data-target="#adduser">
@@ -29,13 +37,12 @@
                 </button>
             </div>
             <div class="col-12 col-md-4 col-lg-4 text-center mt-5">
-                <button class="btn btn-danger" onclick="window.location.href='index.html';">BACK
+                <button class="btn btn-danger" id="back" onclick="window.location.href='index.html';">BACK
                 </button>
             </div>
         </div>
-        <div class="row usercards">
-            
-        </div>
+        <div class="row usercards"></div>
+        <div class="row"><p class="error"></p></div>
         
     </div>
     <div class="modal fade" id="adduser" tabindex="-1" aria-labelledby="adduserLabel" aria-hidden="true">
