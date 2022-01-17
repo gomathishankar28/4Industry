@@ -25,10 +25,10 @@ var userData = [
      },
 ]
 
-if(localStorage.get("userData")  == null) {
+
 var userdata_str = JSON.stringify(userData);
 localStorage.setItem("userData", userdata_str); 
-}
+
 
 function renderUSerCards() {
     let userDatas = JSON.parse(localStorage.getItem("userData"));
