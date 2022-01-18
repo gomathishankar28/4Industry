@@ -1,3 +1,4 @@
+/* Default data for new browsers */
 var userData = [ 
     {  
         "emp_no":"10001",
@@ -25,11 +26,13 @@ var userData = [
      },
 ]
 
+/* use local storage if data available or use the default data above */
 if (JSON.parse(localStorage.getItem("userData")) == null){
 var userdata_str = JSON.stringify(userData);
 localStorage.setItem("userData", userdata_str); 
 }
 
+/* View all users - dynamically creates cards for data in Local storage */
 function renderUSerCards() {
     let userDatas = JSON.parse(localStorage.getItem("userData"));
     console.log(userDatas);
@@ -69,6 +72,7 @@ function renderUSerCards() {
         }
     } 
 }
+/* search user - displays user card for the search query */
 function displayUserCard(formData) {
     var formData = getSearchFormData();
     if(Object.values(formData).length > 0) {
@@ -86,7 +90,7 @@ function displayUserCard(formData) {
         
     }
 }
-
+/* identify card from local storage for the entered emp_no */
 function getSearchFormData() {
     var searchInput = document.getElementById("search-input").value;
     console.log(searchInput);
@@ -122,6 +126,7 @@ function getSearchFormData() {
 function onFormSubmit() {
     var formData = getFormData();
     createUSerCard(formData);
+    $('#adduser').modal('toggle');
     var oldItems = JSON.parse(localStorage.getItem('userData'));
     oldItems.push(formData);
     var userdata_str = JSON.stringify(oldItems);
@@ -129,6 +134,7 @@ function onFormSubmit() {
     console.log(localStorage);
     
 }
+/* validate data from add user modal for unique emp_no */
 function getFormData() {
     var formData = {};
     var oldItems = JSON.parse(localStorage.getItem('userData'));
@@ -147,6 +153,7 @@ function getFormData() {
     resetForm();
     return formData;
 }
+/* reset form after adding a user */
 function resetForm() {
     document.getElementById("emp_no").value = "";
     document.getElementById("fname").value = "";
@@ -155,7 +162,7 @@ function resetForm() {
     document.getElementById("email").value = "";
     
 }
- 
+ /* create card for newly added user */
 function createUSerCard(formData) {
     var mainDiv = document.querySelector('.usercards');
     var colDiv = document.createElement('div');
@@ -188,11 +195,11 @@ function createUSerCard(formData) {
         mainDiv.appendChild(colDiv);
 }
 
+/* validate data from edit user modal for unique emp_no */
 function onEditFormSubmit() {
     var formData = getEditFormData();
     console.log(formData);
     updateUSerCard(formData);
-    document.getElementById("back").click();
     userDatas = JSON.parse(localStorage.getItem("userData"));
     renderUSerCards(userDatas);
 }
@@ -205,6 +212,7 @@ function getEditFormData() {
     return formData;
 }
 
+/* to populate edit user form with data */
 function editUSerCard(e) {
     var selected_card = e.parentElement.parentElement;
     document.getElementById("efname").value = selected_card.childNodes[1].innerHTML.split(" ")[0];
@@ -215,7 +223,7 @@ function editUSerCard(e) {
     
  }
 
-
+/* update the usercard with update */
 function updateUSerCard(formData) {
     console.log("updated");
     totalcards = document.getElementsByClassName('card');
@@ -244,6 +252,7 @@ function updateUSerCard(formData) {
     localStorage.setItem("userData", JSON.stringify(oldItems));
     $('#edituser').modal('toggle');
 }
+ /* Delete the selected usercard from Div and localstorage */
 
 function deleteUserCard(usercard) {
     if (confirm("Are you sure you want to delete this user?")) {
@@ -259,7 +268,8 @@ function deleteUserCard(usercard) {
             }
         } 
         newItem = oldItems.splice(index, 1);
-        console.log(oldItems);
+        
     }
     localStorage.setItem("userData", JSON.stringify(oldItems));
+    console.log("Deleted");
 }

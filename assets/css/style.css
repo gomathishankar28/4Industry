@@ -1,6 +1,13 @@
 /*----------Google font----------------------------*/
 @import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap');
 
+/*----------------CSS variables-------------------*/
+:root {
+    
+    --white: #fdf9fd;
+    --blue: #326896;
+  }
+/*---------------Generic Styles--------------*/
 body {
     margin: 0;
     border: 0;
@@ -9,6 +16,7 @@ body {
     font-family: 'Akaya Telivigala', cursive, sans-serif;
     font-size: 20px;  
 }
+/*---------------header styles--------------*/
 .logo {
     height: 40px;
 }
@@ -68,24 +76,24 @@ p {
     font-weight: 700;
 }
 .emp_no {
-    background-color: white;
+    background-color: var(--blue);
     margin-left: 20px;
     margin-right: 20px;
+    color: var(--white);
 }
 .badge {
-    background-color: #326896;
+    background-color: var(--blue);
     height: 50px;
     width: 50px;
     padding-top: 20px;
     border-radius: 50%;
     font-weight: 700;
-    color: white;
+    color: var(--white);
 }
-i {
-    color: white;
+i, a {
+    color: var(--white);
 }
 a {
-    color: white;
     padding: 5px;
 }
 #search-input {
@@ -93,7 +101,7 @@ a {
 }
 .btn-info {
     background-color: chocolate!important;
-    color: white;
+    color: var(--white);
 }
 .fa-search  {
     height: 30px;
@@ -105,7 +113,7 @@ h2 {
     bottom: 0;
 }
 .card-btn {
-    background-color: #326896;
+    background-color: var(--blue);
 }
 .modal-content {
     background-color: #e1f1e6!important;
@@ -115,6 +123,6 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
-    height: auto;   /* Height of the footer */
+    height: auto; 
 
 }
