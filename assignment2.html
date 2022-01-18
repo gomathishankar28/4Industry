@@ -14,10 +14,10 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light ml-auto bg-navbar">
         <!-- Brand Title on top left -->
-            <a class="navbar-brand" href="index.html">
-                <h1 class="brandname"><img src="assets/images/4industry-logo.png" alt="logo"></h1>
-                <h2 class= mr-5>ASSIGNMENTS</h2>
-            </a>
+        <a class="navbar-brand" href="index.html">
+            <h1 class="brandname"><img src="assets/images/4industry-logo.png" alt="logo" class="logo"></h1>
+            <h2 class="brand-text">ASSIGNMENTS</h2>
+        </a>
         <!-- Navigation menu bar on top right -->
             <div class="col toggler-nav">
                 <button type="button" class="navbar-toggler toggler-collapsed navbar-toggler-right toggler-btn" data-toggle="collapse" data-target="#navbarCollapse">
@@ -53,7 +53,7 @@
             <div class="col-6 text-center">
                 <div class="input-group mr-5 pr-5">
                     <input type="number" class="form-control rounded" id="search-input" placeholder="Enter Employee number to search EX: 10003" aria-label="Search" aria-describedby="search-addon" required="">
-                    <button type="button" class="btn btn-outline-primary btn-info search-btn" onclick="displayUserCard();">VIEW USER</button>
+                    <button type="button" class="btn btn-outline-primary btn-info search-btn" onclick="displayUserCard();">SEARCH</button>
                   </div>
             </div>
             <div class="col-3 text-center">
@@ -68,8 +68,6 @@
         </div>
         <div class="row usercards"></div>
         <div class="row"><p class="error"></p></div>
-        
-    </div>
     <div class="modal fade" id="adduser" tabindex="-1" aria-labelledby="adduserLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -155,6 +153,7 @@
             </div>
         </div>
     </div>
+</div>
     <footer>
         <div class="container-fluid footer-container">
             <div class="row footer-details">
@@ -165,6 +164,7 @@
             </div>
         </div>
     </footer>
+
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
