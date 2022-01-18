@@ -1,8 +1,25 @@
-body {
-    background-color: #204848;
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap');
+
+.navbar,.footer-container {
+    background-color: #92e3a9;
 }
 h1, h2, h3 {
-    color: cadetblue;
+    color: black;
+}
+.landing-container {
+    background-image: url(../images/landingpage.png);
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    height: 600px;
+    padding: 0;
+    margin: 0;
+    border: 0   
+}
+.assignment2 {
+    height: auto;
 }
 .cta-btn {
     position:absolute;
@@ -11,12 +28,12 @@ h1, h2, h3 {
     display: block;
 }
 .card {
-    background-color: cadetblue;
+    background-color: #92e3a9;
     margin: 10px;
     padding: 5px;
     border: 2px solid black;
-    border: 2px solid teal;
-    box-shadow: 5px -5px teal;
+    border: 2px solid #92e3a9;
+    box-shadow: 5px -5px #33ad55;
 }
 .card:hover {
     transform: scale(1.1); 
@@ -53,17 +70,22 @@ i {
 }
 
 a {
-    background-color: #254A5D;
     color: white;
     padding: 5px;
 }
-
+#search-input {
+    border: 2px solid chocolate; 
+}
 .btn-info {
     background-color: chocolate!important;
+    color: white;
 }
 .fa-search  {
     height: 30px;
 }
 h2 {
     margin-left: 150px;
+}
+.footer {
+    bottom: 0;
 }

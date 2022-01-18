@@ -34,6 +34,7 @@ function renderUSerCards() {
     let userDatas = JSON.parse(localStorage.getItem("userData"));
     console.log(userDatas);
     var mainDiv = document.querySelector('.usercards');
+    mainDiv.innerHTML = "";
     if (mainDiv.childElementCount == 0) {
         for(var i = 0; i < userDatas.length; i++){
             var colDiv = document.createElement('div');
@@ -71,13 +72,16 @@ function renderUSerCards() {
 function displayUserCard(formData) {
     var formData = getSearchFormData();
     if(Object.values(formData).length > 0) {
+        var mainDiv = document.querySelector('.usercards');
+        mainDiv.innerHTML = "";
         createUSerCard(formData);
     }
     else {
         var mainDiv = document.querySelector('.usercards');
+        mainDiv.innerHTML = "";
         var errorDiv = document.createElement('h2');
         errorDiv.className = "text-center";
-        errorDiv.innerHTML = "No Employees found";
+        errorDiv.innerHTML = "No match Found. Please Enter a Valid Employee Number";
         mainDiv.append(errorDiv);
         
     }

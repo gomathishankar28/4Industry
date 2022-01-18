@@ -11,33 +11,58 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div class="container-fluid">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light ml-auto bg-navbar">
+        <!-- Brand Title on top left -->
+            <a class="navbar-brand" href="index.html">
+                <h1 class="brandname"><img src="assets/images/4industry-logo.png" alt="logo"></h1>
+                <h2 class= mr-5>ASSIGNMENTS</h2>
+            </a>
+        <!-- Navigation menu bar on top right -->
+            <div class="col toggler-nav">
+                <button type="button" class="navbar-toggler toggler-collapsed navbar-toggler-right toggler-btn" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse toggler-nav" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto navright">
+                    <li class="navbar-item active">
+                        <a href="index.html" class="nav-item nav-link active"><button class="btn btn-info">
+                            HOME</button></a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="assignment1.html" class="nav-item nav-link"><button class="btn btn-info">
+                            ASSIGNMENT 1 </button></a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="assignment2.html" class="nav-item nav-link"><button class="btn btn btn-info">
+                            ASSIGNMENT 2</button></a>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+    </header>     
+    <div class="container-fluid assignment2">
         <div class="row mt-5">
             <div class="col-12 text-center">
                 <h1> ASSIGNMENT - 2</h1>
-                <h3> USER LIST</h3>
+                <h3> USER MANAGEMENT PORTAL</h3>
             </div>
         </div>
-        <div class="row mt-5">
-            <div class="offset-2 col-8  text-center">
+        <div class="row mt-5 mb-5 pb-5">
+            <div class="col-6 text-center">
                 <div class="input-group mr-5 pr-5">
-                    <input type="search" class="form-control rounded" id="search-input" placeholder="Enter Employee number to search" aria-label="Search" aria-describedby="search-addon" />
-                    <button type="button" class="btn btn-outline-primary search-btn" onclick="displayUserCard();">search</button>
+                    <input type="number" class="form-control rounded" id="search-input" placeholder="Enter Employee number to search EX: 10003" aria-label="Search" aria-describedby="search-addon" required="">
+                    <button type="button" class="btn btn-outline-primary btn-info search-btn" onclick="displayUserCard();">VIEW USER</button>
                   </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-4 col-lg-4 text-center mt-5">
+            <div class="col-3 text-center">
                 <button class="btn btn-large btn-info" id="btn-view" onclick="renderUSerCards();">
-                    VIEW ALL</button>
+                    VIEW ALL USERS</button>
             </div>
-            <div class="col-12 col-md-4 col-lg-4 text-center mt-5 mb-5">
+            <div class="col-3 text-center">
                 <button class="btn btn-large btn-info" data-toggle="modal" data-target="#adduser">
                     ADD NEW USER
-                </button>
-            </div>
-            <div class="col-12 col-md-4 col-lg-4 text-center mt-5">
-                <button class="btn btn-danger" id="back" onclick="window.location.href='index.html';">BACK
                 </button>
             </div>
         </div>
@@ -130,7 +155,16 @@
             </div>
         </div>
     </div>
-    
+    <footer>
+        <div class="container-fluid footer-container">
+            <div class="row footer-details">
+                <!-- Copyrgiht -->
+                <div class="col-md-12">
+                    <h3 class="text-center footer-copyright">Technical assignments @ 4Industry</h3>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

@@ -11,15 +11,41 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light ml-auto bg-navbar">
+        <!-- Brand Title on top left -->
+            <a class="navbar-brand" href="index.html">
+                <h1 class="brandname"><img src="assets/images/4industry-logo.png" alt="logo"></h1>
+                <h2 class= mr-5>ASSIGNMENTS</h2>
+            </a>
+        <!-- Navigation menu bar on top right -->
+            <div class="col toggler-nav">
+                <button type="button" class="navbar-toggler toggler-collapsed navbar-toggler-right toggler-btn" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse toggler-nav" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto navright">
+                    <li class="navbar-item active">
+                        <a href="index.html" class="nav-item nav-link active"><button class="btn btn-info">
+                            HOME</button></a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="assignment1.html" class="nav-item nav-link"><button class="btn btn-info">
+                            ASSIGNMENT 1 </button></a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="assignment2.html" class="nav-item nav-link"><button class="btn btn btn-info">
+                            ASSIGNMENT 2</button></a>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid assignment1">
         <div class="row mt-5 mb-5">
             <div class="col-10 text-center">
-                <h1> Assignment - 1</h1>
+                <h1> ASSIGNMENT - 1</h1>
                 <h3> ER Diagram </h3>
-            </div>
-            <div class="col-2 text-center">
-                <button class="btn btn-danger" onclick="window.location.href='index.html';">BACK
-                </button>
             </div>
         </div>
         </div class="row text-center">
@@ -28,5 +54,15 @@
             </div>
         </div>
     </div>
+    <footer>
+        <div class="container-fluid footer-container">
+            <div class="row footer-details">
+                <!-- Copyrgiht -->
+                <div class="col-md-12">
+                    <h3 class="text-center footer-copyright">Technical assignments @ 4Industry</h3>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
