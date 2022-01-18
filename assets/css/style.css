@@ -1,4 +1,14 @@
+/*----------Google font----------------------------*/
 @import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap');
+
+body {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    font-family: 'Akaya Telivigala', cursive, sans-serif;
+    font-size: 20px;  
+}
 
 .navbar,.footer-container {
     background-color: #92e3a9;
@@ -57,7 +67,7 @@ p {
     margin-right: 20px;
 }
 .badge {
-    background-color: #254A5D;
+    background-color: #326896;
     height: 50px;
     width: 50px;
     padding-top: 20px;
@@ -88,4 +98,10 @@ h2 {
 }
 .footer {
     bottom: 0;
+}
+.card-btn {
+    background-color: #326896;
+}
+.modal-content {
+    background-color: #e1f1e6!important;
 }

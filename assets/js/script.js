@@ -60,9 +60,9 @@ function renderUSerCards() {
             email.innerHTML = userDatas[i].email;
             var btns = document.createElement('p');
             btns.className = 'btn'
-            btns.innerHTML = `<a data-toggle="modal" href="#edituser" onclick="return editUSerCard(this)">
+            btns.innerHTML = `<a data-toggle="modal" href="#edituser" onclick="return editUSerCard(this)" class="card-btn">
             <i class="fas fa-edit"></i></a>
-            <a onclick="deleteUserCard(this)"><i class="fas fa-trash-alt"></i></a>`;
+            <a onclick="deleteUserCard(this)" class="card-btn"><i class="fas fa-trash-alt"></i></a>`;
             cardDiv.append(badges, fullname, emp_no, mobile, email, btns); 
             console.log(cardDiv);
             mainDiv.appendChild(colDiv);
@@ -181,8 +181,8 @@ function createUSerCard(formData) {
         email.innerHTML = formData.email;
         var btns = document.createElement('p');
         btns.className = 'btn'
-        btns.innerHTML = `<a data-toggle="modal" href="#edituser" onclick="return editUSerCard(this)"><i class="fas fa-edit"></i></a>
-        <a onclick="deleteUserCard(this)"><i class="fas fa-trash-alt"></i></a>`;
+        btns.innerHTML = `<a data-toggle="modal" href="#edituser" onclick="return editUSerCard(this)" class="card-btn"><i class="fas fa-edit"></i></a>
+        <a onclick="deleteUserCard(this)" class="card-btn"><i class="fas fa-trash-alt"></i></a>`;
         cardDiv.append(badges, fullname, emp_no, mobile, email, btns);
         console.log(cardDiv);
         mainDiv.appendChild(colDiv);
