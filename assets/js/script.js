@@ -25,7 +25,7 @@ var userData = [
      },
 ]
 
-if (localStorage.get("userData") == null){
+if (JSON.parse(localStorage.getItem("userData")) == null){
 var userdata_str = JSON.stringify(userData);
 localStorage.setItem("userData", userdata_str); 
 }
